@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ ALMA EN VERSOS ✨ - Página de Poesías</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 2rem 1rem;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        /* Encabezado con Animación */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #e83e8c;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .subtitulo {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+            animation: fadeIn 4s ease-out;
+        }
+
+        /* Botón de Música */
+        .music-control {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: #e83e8c;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sección de Poemas con Animaciones */
+        .poema-section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 1s ease forwards;
+        }
+
+        .poema-section:nth-child(2) { animation-delay: 0.5s; }
+        .poema-section:nth-child(3) { animation-delay: 1s; }
+        .poema-section:nth-child(4) { animation-delay: 1.5s; }
+
+        .poema-titulo {
+            color: #fd7e14;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #fd7e14;
+            padding-left: 1rem;
+        }
+
+        .poema-texto {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #343a40;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contenedor de Imágenes con Animación */
+        .imagen-contenedor {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .imagen-poema {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .imagen-contenedor:hover .imagen-poema {
+            transform: scale(1.1);
+        }
+
+        .imagen-texto {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            font-style: italic;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Elementos Flotantes Decorativos */
+        .hoja {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://cdn-icons-png.flaticon.com/512/100/100220.png') no-repeat center;
+            background-size: contain;
+            animation: flotar 15s infinite ease-in-out;
+            opacity: 0.7;
+        }
+
+        .hoja:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .hoja:nth-child(2) {
+            top: 30%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .hoja:nth-child(3) {
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .hoja:nth-child(4) {
+            bottom: 40%;
+            right: 10%;
+            animation-delay: 6s;
+        }
+
+        @keyframes flotar {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(15px, -15px) rotate(5deg); }
+            50% { transform: translate(0, -30px) rotate(0deg); }
+            75% { transform: translate(-15px, -15px) rotate(-5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* Pie de Página */
+        footer {
+            text-align: center;
+            color: #6c757d;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .imagen-contenedor { height: 200px; }
+            .music-control { top: 1rem; right: 1rem; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón de Control de Música -->
+    <button class="music-control" id="musicBtn">🎵</button>
+
+    <!-- Elementos Decorativos Flotantes -->
+    <div class="hoja"></div>
+    <div class="hoja"></div>
+    <div class="hoja"></div>
+    <div class="hoja"></div>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        <header>
+            <h1>ALMA EN VERSOS</h1>
+            <p class="subtitulo">Donde las palabras cobran vida y el silencio canta</p>
+        </header>
+
+        <!-- Poema 1 -->
+        <section class="poema-section">
+            <h2 class="poema-titulo">El Viento y la Palabra</h2>
+            <div class="imagen-contenedor">
+                <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" 
+                     alt="Campo de trigo con viento" class="imagen-poema">
+                <div class="imagen-texto">El viento lleva secretos que las palabras guardan</div>
+            </div>
+            <p class="poema-texto">
+                El viento susurra en los árboles<br>
+                mensajes que nadie escribió,<br>
+                letras tejidas con suspiros,<br>
+                caminos que el tiempo dibujó.<br><br>
+                Cada hoja es una sílaba,<br>
+                cada ramaje un verso entero,<br>
+                el bosque es un poema vivo,<br>
+                que solo el corazón puede leer.
+            </p>
+        </section>
+
+        <!-- Poema 2 -->
+        <section class="poema-section">
+            <h2 class="poema-titulo">Reflejos en el Agua</h2>
+            <div class="imagen-contenedor">
+                <img src="https://images.unsplash.com/photo-1518952286450-136930011356?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" 
+                     alt="Lago con reflejos del cielo" class="imagen-poema">
+                <div class="imagen-texto">El agua muestra lo que somos, no lo que parecemos</div>
+            </div>
+            <p class="poema-texto">
+                El lago guarda el cielo azul,<br>
+                y en su superficie clara,<br>
+                se ven sombras de lo real,<br>
+                y sueños de lo que será.<br><br>
+                Cada onda es un susurro,<br>
+                cada rizo un pensamiento,<br>
+                el agua no engaña nunca,<br>
+                muestra el alma sin disfraz.
+            </p>
+        </section>
+
+        <!-- Poema 3 -->
+        <section class="poema-section">
+            <h2 class="poema-titulo">La Luz del Atardecer</h2>
+            <div class="imagen-contenedor">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" 
+                     alt="Atardecer con colores cálidos" class="imagen-poema">
+                <div class="imagen-texto">Cada atardecer es un adiós que promete un nuevo amanecer</div>
+            </div>
+            <p class="poema-texto">
+                El sol se pone en el horizonte,<br>
+                pintando el cielo de oro y fuego,<br>
+                cerrando el capítulo del día,<br>
+                con un beso de luz y calor.<br><br>
+                Cada rayo es un recuerdo,<br>
+                cada color una emoción,<br>
+                el atardecer nos enseña<br>
+                que la despedida también es belleza.
+            </p>
+        </section>
+
+        <footer>
+            <p>© 2026 Alma en Versos | Creado con ❤️ para los amantes de la poesía</p>
+        </footer>
+    </div>
+
+    <!-- Elemento de Audio -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/26/audio_9b1e31e211.mp3?filename=claude-debussy-clair-de-lune-104240.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    
+
+    <script>
+        // Control de Música
+        const musicBtn = document.getElementById('musicBtn');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicBtn.textContent = '🎵';
+            } else {
+                backgroundMusic.play();
+                musicBtn.textContent = '⏸️';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Efecto de Scroll para Animaciones Adicionales
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.poema-section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight * 0.8) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
